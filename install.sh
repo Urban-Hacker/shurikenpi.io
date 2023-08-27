@@ -1,4 +1,8 @@
 #!/bin/bash
+# File generated automatically by build.sh. Do not modify
+# DO NOT MODIFY
+
+#!/bin/bash
 
 p() {
     echo -e "  » $1"
@@ -77,3 +81,6 @@ spin_it(){
         echo ""
     fi
 }
+
+
+ 
