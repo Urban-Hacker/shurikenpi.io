@@ -1,5 +1,10 @@
 #!/bin/bash
 
+r(){
+    p $1
+    read -p "  › " $2
+}
+
 p() {
     echo -e "  » $1"
 }
@@ -30,7 +35,7 @@ gum(){
 
 msg() {
     echo ""
-    echo -e "$(cat ../messages/$1)"
+    echo -e "$(cat ../Messages/$1)"
     echo ""
 }
 

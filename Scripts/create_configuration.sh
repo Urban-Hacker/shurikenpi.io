@@ -2,5 +2,7 @@
 
 source ./global.sh
 source ./utils.sh
-
-p "create new config"
+msg logo.txt
+p "create a new configuration"
+r "Your bitcoin address:" address
+python3 ../Tools/address_validation.py $address
