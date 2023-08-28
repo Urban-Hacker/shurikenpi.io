@@ -50,7 +50,7 @@ spin_it(){
     shift
     local command=$@
     local hash=$(echo -n "$command" | md5sum | awk '{print $1}')
-    local logfile="/tmp/shuriken/$hash.txt"
+    local logfile="$TMP_DIRECTORY/$hash.txt"
     "$@" > $logfile 2>&1 &
     chars=("  ⠋ " "  ⠙ " "  ⠹ " "  ⠸ " "  ⠼ " "  ⠴ " "  ⠦ " "  ⠧ " "  ⠇ " "  ⠏ ")
     pid=$!
