@@ -1,11 +1,12 @@
  
 install_prerequisites(){
     p "Installing pre-requisites..."
-    spin_it "goland-go (1/5)" sudo apt-get install -y golang-go
-    spin_it "gum       (2/5)" go install github.com/charmbracelet/gum@latest
-    spin_it "git       (3/5)" sudo apt-get install -y git
-    spin_it "tor       (4/5)" sudo apt-get install -y tor
-    spin_it "curl      (5/5)" sudo apt-get install -y curl
+    spin_it "goland-go (1/6)" sudo apt-get install -y golang-go
+    spin_it "gum       (2/6)" go install github.com/charmbracelet/gum@latest
+    spin_it "git       (3/6)" sudo apt-get install -y git
+    spin_it "tor       (4/6)" sudo apt-get install -y tor
+    spin_it "curl      (5/6)" sudo apt-get install -y curl
+    spin_it "screen    (6/6)" sudo apt-get install -y screen
 }
 
 go_to_install_directory(){
