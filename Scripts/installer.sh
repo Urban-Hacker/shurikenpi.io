@@ -78,5 +78,5 @@ check_if_upgrade
 go_to_install_directory
 clone_repository
 
-cd $GIT_FOLDER/Scripts/
-./create_configuration.sh
+cd $GIT_FOLDER/
+./shuriken.sh config
