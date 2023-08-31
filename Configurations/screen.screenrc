@@ -1,0 +1,3 @@
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{= kR}[ShurikenPi.io press CTRL A + D to exit]"

@@ -11,5 +11,6 @@ def get_mining_parameters(pool, address):
     # Special case when using custom pool
     return "-a sha256d -o " + pool + " -u " + address
 
-print (get_mining_parameters(sys.argv[1], sys.argv[2]))
+command = "../Bin/cpuminer " + get_mining_parameters(sys.argv[1], sys.argv[2])
+print (command)
 #if sys.argv[1] == "-h" or sys.argv[1] == "--help":

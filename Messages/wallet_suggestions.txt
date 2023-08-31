@@ -1,0 +1,6 @@
+   To run ShurikenPi you will need a Bitcoin wallet. Getting a Bitcoin wallet is
+   actually a straightforward process, much easier than many people might think.
+   If you do not have yet a wallet we recommend:
+   
+   * https://samouraiwallet.com/ for Android
+   * https://sparrowwallet.com/ for PC, Mac and Linux
