@@ -27,6 +27,9 @@ mkdir $TMP_DIRECTORY 2>&1
 
 GIT_URL=https://github.com/Urban-Hacker/shurikenpi.io/
 
+SESSION_COUNT=$(screen -ls | grep -c "\.shurikenpi.io")
+
+
 
 #!/bin/bash
 
