@@ -2,6 +2,7 @@
 
 r(){
     p $1
+    while read -t 0; do :; done
     read -p "  › " $2
 }
 
