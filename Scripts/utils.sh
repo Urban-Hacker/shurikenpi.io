@@ -29,10 +29,6 @@ p_warn(){
     echo -e "  \033[33m!\033[0m $1"
 }
 
-gum(){
-    ~/go/bin/gum $@
-}
-
 msg() {
     echo ""
     echo -e "$(cat ../Messages/$1)"
