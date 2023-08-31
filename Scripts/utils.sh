@@ -8,32 +8,46 @@ r(){
 
 p() {
     echo -e "  » $1"
+    sleep 0.1
 }
 
 p_user() {
-    echo -e "  › $1"
+    echo -e "  \e[35m› $1\033[0m"
+    sleep 0.1
 }
 
 p_err(){
     echo -e "  \033[31m»\033[0m $1"
+    sleep 0.1
 }
 
 p_fatal(){
     echo -e "  \033[31m» $1\033[0m"
+    sleep 0.1
 }
 
 p_ok(){
     echo -e "  \033[32m»\033[0m $1"
+    sleep 0.1
 }
 
 p_warn(){
     echo -e "  \033[33m!\033[0m $1"
+    sleep 0.1
 }
 
 msg() {
     echo ""
-    echo -e "$(cat ../Messages/$1)"
+    sleep 0.1
+    while IFS= read -r line
+    do
+        echo -e "$line"
+        sleep 0.1
+    done < "../Messages/$1"
+    echo "$line"
+    sleep 0.1
     echo ""
+    sleep 0.1
 }
 
 ask_yes_or_no(){
@@ -45,6 +59,11 @@ ask_yes_or_no(){
     fi
     p_user "No"
     return 1
+}
+
+user_pause(){
+    result=$(gum choose --cursor=  ›   Continue)
+    p_user "Continue"
 }
 
 spin_it(){

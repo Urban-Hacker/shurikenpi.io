@@ -5,9 +5,9 @@ source ./utils.sh
 
 new_configuration(){
     msg logo.txt
-    p "We will create a new configuration"
+    p "We will create a new configuration."
+    user_pause
     msg wallet_suggestions.txt
-    echo ""
     r "Your bitcoin address:" address
     #python3 ../Tools/address_validation.py $address
     echo ""
@@ -25,7 +25,7 @@ new_configuration(){
     echo "address: $address" > ../Worker/worker.conf
     echo "pool: $mining_pool" >> ../Worker/worker.conf
     p "Ready to boil the oceans captain!"
-    p_ok "To start mining, use the command 'shuriken start'"
+    p "To start mining, use the command 'shuriken start'"
     echo ""
 }
 
