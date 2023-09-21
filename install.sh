@@ -150,7 +150,6 @@ install_prerequisites(){
 
 go_to_install_directory(){
     echo ""
-    cd $INSTALLATION_FOLDER
     p "Install directory will be: $INSTALLATION_FOLDER"
     if [ -d $INSTALLATION_FOLDER ]; then
         echo ""
@@ -212,6 +211,11 @@ install_prerequisites
 check_if_upgrade
 go_to_install_directory
 clone_repository
+
+if ! grep -q "alias shuriken=" ~/.bashrc; then
+    echo "alias shuriken=$GIT_FOLDER/shuriken.sh" >> ~/.bashrc
+fi
+source ~/.bashrc
 
 cd $GIT_FOLDER/
 ./shuriken.sh config
