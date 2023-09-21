@@ -1,4 +1,5 @@
     Description:
+     
      A Bitcoin miner for your Raspberry pi
 
     Synopsis:
@@ -7,12 +8,11 @@
 
     Description:
 
-    stop        Stop the mining process
-    start       Start the mining process
-    run         Same as start
-    status      Display the current status of the miner
-    monitor     Open the mining process if running
-    miner       Same as monitor
-    config      Run the configuration script
-    help        Display this message
-
+     stop        Stop the mining process
+     start       Start the mining process
+     run         Same as start
+     status      Display the current status of the miner
+     monitor     Open the mining process if running
+     miner       Same as monitor
+     config      Run the configuration script
+     help        Display this message

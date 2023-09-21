@@ -26,6 +26,7 @@ new_configuration(){
     echo "pool: $mining_pool" >> ../Worker/worker.conf
     p "Ready to boil the oceans captain!"
     p "To start mining, use the command 'shuriken start'"
+    p "To get help, use the command 'shuriken help'"
     echo ""
 }
 

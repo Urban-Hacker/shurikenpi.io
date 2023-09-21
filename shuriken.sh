@@ -25,3 +25,6 @@ fi
 if [[ $command == "miner" ]]; then
     ./monitor.sh $@
 fi
+if [[ $command == "help" ]]; then
+    ./help.sh $@
+fi
