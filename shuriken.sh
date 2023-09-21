@@ -19,3 +19,9 @@ fi
 if [[ $command == "config" ]]; then
     ./create_configuration.sh $@
 fi
+if [[ $command == "monitor" ]]; then
+    ./monitor.sh $@
+fi
+if [[ $command == "miner" ]]; then
+    ./monitor.sh $@
+fi
