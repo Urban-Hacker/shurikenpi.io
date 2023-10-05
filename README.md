@@ -42,3 +42,4 @@ $ ./shuriken.sh start
 
 * NerdMiner (https://github.com/BitMaker-hub/NerdMiner_v2)
 * The authors of cpuminer-multi (https://github.com/tpruvot/cpuminer-multi)
+* Bitaxe (https://bitaxe.org/)
