@@ -52,7 +52,7 @@ msg() {
 
 ask_yes_or_no(){
     echo -e "  \033[33m?\033[0m $1"
-    result=$(gum choose --cursor=  ›   Yes No)
+    local result=$(gum choose --cursor=  ›   Yes No)
     if [[ $result == "Yes" ]]; then
         p_user "Yes"
         return 0
@@ -62,7 +62,7 @@ ask_yes_or_no(){
 }
 
 user_pause(){
-    result=$(gum choose --cursor=  ›   Continue)
+    local result=$(gum choose --cursor=  ›   Continue)
     p_user "Continue"
 }
 
@@ -82,7 +82,7 @@ spin_it(){
         done
     done
     wait $pid
-    exit_status=$?
+    local exit_status=$?
     echo -ne "\r\033[K"
     if [ $exit_status -eq 0 ]; then
         p $msg

@@ -6,25 +6,23 @@ cd ./Scripts
 
 if [[ $command == "stop" ]]; then
     ./stop.sh $@
-fi
-if [[ $command == "start" ]]; then
+elif [[ $command == "start" ]]; then
     ./start.sh $@
-fi
-if [[ $command == "run" ]]; then
+elif [[ $command == "run" ]]; then
     ./start.sh $@
-fi
-if [[ $command == "status" ]]; then
+elif [[ $command == "status" ]]; then
     ./status.sh $@
-fi
-if [[ $command == "config" ]]; then
+elif [[ $command == "config" ]]; then
     ./create_configuration.sh $@
-fi
-if [[ $command == "monitor" ]]; then
+elif [[ $command == "monitor" ]]; then
     ./monitor.sh $@
-fi
-if [[ $command == "miner" ]]; then
+elif [[ $command == "miner" ]]; then
     ./monitor.sh $@
-fi
-if [[ $command == "help" ]]; then
+elif [[ $command == "help" ]]; then
     ./help.sh $@
+elif [[ $command == "version" ]]; then
+    ./version.sh $@
+else
+    echo "  » Unknown command. Not sure what you are trying to do :("
+    echo "    Run 'shuriken help' to show the built-in user manual"
 fi
