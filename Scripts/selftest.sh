@@ -19,3 +19,4 @@ fi
 p "Running the mining process for 1 min"
 p_warn "Please do not force stop the process during the test"
 timeout 1m ../Worker/worker.sh
+p_ok "Self Test Finished!"
