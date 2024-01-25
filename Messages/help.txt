@@ -15,4 +15,6 @@
      monitor     Open the mining process if running
      miner       Same as monitor
      config      Run the configuration script
+     test        Run a series of self test
      help        Display this message
+     version     Return the version currently running

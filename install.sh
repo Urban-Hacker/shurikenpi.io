@@ -4,6 +4,23 @@
 
 #!/bin/bash
 
+enum ()
+{
+    # skip index ???
+    shift
+    AA=${@##*\{} # get string strip after { 
+    AA=${AA%\}*} # get string strip before }
+    AA=${AA//,/} # delete commaa  
+    ((DEBUG)) && echo $AA
+    local I=0
+    for A in $AA ; do
+        eval "$A=$I"
+        ((I++))
+    done
+}
+
+enum VERSION_TYPE { STABLE, DEV, DEV_DETACHED };
+
 VERBOSE=0
 while getopts ":v" option; do
     case "${option}" in
@@ -17,6 +34,8 @@ while getopts ":v" option; do
     esac
 done
 
+shift "$((OPTIND-1))"
+
 LOGS=/dev/null
 INSTALLATION_FOLDER="$HOME/shurikenpi"
 GIT_FOLDER="$HOME/shurikenpi/shurikenpi.io"
@@ -29,6 +48,29 @@ GIT_URL=https://github.com/Urban-Hacker/shurikenpi.io/
 
 SESSION_COUNT=$(screen -ls | grep -c "\.shurikenpi.io")
 
+extract_version(){
+    local branch=$(git rev-parse --abbrev-ref HEAD)
+    local tag=$(git describe --tags --abbrev=0 2>/dev/null)
+    local commit_hash=$(git rev-parse HEAD)
+    local commit_hash=${commit_hash:0:5}
+
+    INSTALLED_VERSION=""
+    INSTALLED_TYPE=""
+    if [[ "$branch" == "HEAD" ]]; then
+        INSTALLED_VERSION="$commit_hash (dev)"
+        INSTALLED_TYPE=$DEV_DETACHED
+    else
+        if [[ "$branch" == "stable" && -n "$tag" ]]; then
+            INSTALLED_VERSION="$tag"
+            INSTALLED_TYPE=$STABLE
+        else
+            INSTALLED_VERSION="$commit_hash (dev)"
+            INSTALLED_TYPE=$DEV
+        fi
+    fi
+}
+
+extract_version
 
 
 #!/bin/bash
@@ -85,7 +127,7 @@ msg() {
 
 ask_yes_or_no(){
     echo -e "  \033[33m?\033[0m $1"
-    result=$(gum choose --cursor=  ›   Yes No)
+    local result=$(gum choose --cursor=  ›   Yes No)
     if [[ $result == "Yes" ]]; then
         p_user "Yes"
         return 0
@@ -95,7 +137,7 @@ ask_yes_or_no(){
 }
 
 user_pause(){
-    result=$(gum choose --cursor=  ›   Continue)
+    local result=$(gum choose --cursor=  ›   Continue)
     p_user "Continue"
 }
 
@@ -115,7 +157,7 @@ spin_it(){
         done
     done
     wait $pid
-    exit_status=$?
+    local exit_status=$?
     echo -ne "\r\033[K"
     if [ $exit_status -eq 0 ]; then
         p $msg
@@ -131,6 +173,7 @@ spin_it(){
         echo ""
     fi
 }
+
 
 
  
