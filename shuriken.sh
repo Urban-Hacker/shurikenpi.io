@@ -18,6 +18,8 @@ elif [[ $command == "monitor" ]]; then
     ./monitor.sh $@
 elif [[ $command == "miner" ]]; then
     ./monitor.sh $@
+elif [[ $command == "test" ]]; then
+    ./selftest.sh $@
 elif [[ $command == "help" ]]; then
     ./help.sh $@
 elif [[ $command == "version" ]]; then
