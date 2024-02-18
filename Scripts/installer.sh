@@ -11,6 +11,13 @@ install_prerequisites(){
     spin_it "apt install tor                                                           \033[32m✓\033[0m" sudo apt-get install -y tor
     spin_it "apt install curl                                                          \033[32m✓\033[0m" sudo apt-get install -y curl
     spin_it "apt install screen                                                        \033[32m✓\033[0m" sudo apt-get install -y screen
+
+    if [[ "$ARCHITECTURE" == "aarch64" ]]; then
+        spin_it "apt install libc6:armhf                                               \033[32m✓\033[0m" sudo apt-get install -y libc6:armhf
+        spin_it "apt install libstdc++6:armhf                                          \033[32m✓\033[0m" sudo apt-get install -y libstdc++6:armhf
+        spin_it "apt install libcurl4:armhf                                            \033[32m✓\033[0m" sudo apt-get install -y libcurl4:armhf
+        spin_it "apt install libssl1.1:armhf                                           \033[32m✓\033[0m" sudo apt-get install -y libssl1.1:armhf
+    fi
 }
 
 go_to_install_directory(){
