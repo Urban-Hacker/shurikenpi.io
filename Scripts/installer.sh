@@ -13,6 +13,7 @@ install_prerequisites(){
     spin_it "apt install screen                                                        \033[32m✓\033[0m" sudo apt-get install -y screen
 
     if [[ "$ARCHITECTURE" == "aarch64" ]]; then
+        spin_it "dpkg --add-architecture armhf                                             \033[32m✓\033[0m" sudo dpkg --add-architecture armhf
         spin_it "apt install libc6:armhf                                                   \033[32m✓\033[0m" sudo apt-get install -y libc6:armhf
         spin_it "apt install libstdc++6:armhf                                              \033[32m✓\033[0m" sudo apt-get install -y libstdc++6:armhf
         spin_it "apt install libcurl4:armhf                                                \033[32m✓\033[0m" sudo apt-get install -y libcurl4:armhf
