@@ -206,6 +206,7 @@ install_prerequisites(){
         spin_it "apt install libstdc++6:armhf                                              \033[32m✓\033[0m" sudo apt-get install -y libstdc++6:armhf
         spin_it "apt install libcurl4:armhf                                                \033[32m✓\033[0m" sudo apt-get install -y libcurl4:armhf
         spin_it "apt install libssl1.1:armhf                                               \033[32m✓\033[0m" sudo apt-get install -y libssl1.1:armhf
+        spin_it "apt install libjansson4:armhf                                               \033[32m✓\033[0m" sudo apt-get install -y libjansson4:armhf
     fi
 }
 
