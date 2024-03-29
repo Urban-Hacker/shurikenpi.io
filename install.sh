@@ -193,6 +193,9 @@ install_prerequisites(){
     curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --batch --yes --dearmor -o /etc/apt/keyrings/charm.gpg
     echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list >/dev/null
 
+    if [[ "$ARCHITECTURE" == "aarch64" ]]; then
+        spin_it "dpkg --add-architecture armhf                                             \033[32m✓\033[0m" sudo dpkg --add-architecture armhf
+    fi
     spin_it "Update cache..." sudo apt update
     spin_it "apt install gum                                                           \033[32m✓\033[0m" sudo apt-get install -y gum
     spin_it "apt install git                                                           \033[32m✓\033[0m" sudo apt-get install -y git
@@ -201,12 +204,11 @@ install_prerequisites(){
     spin_it "apt install screen                                                        \033[32m✓\033[0m" sudo apt-get install -y screen
 
     if [[ "$ARCHITECTURE" == "aarch64" ]]; then
-        spin_it "dpkg --add-architecture armhf                                             \033[32m✓\033[0m" sudo dpkg --add-architecture armhf
         spin_it "apt install libc6:armhf                                                   \033[32m✓\033[0m" sudo apt-get install -y libc6:armhf
         spin_it "apt install libstdc++6:armhf                                              \033[32m✓\033[0m" sudo apt-get install -y libstdc++6:armhf
         spin_it "apt install libcurl4:armhf                                                \033[32m✓\033[0m" sudo apt-get install -y libcurl4:armhf
         spin_it "apt install libssl1.1:armhf                                               \033[32m✓\033[0m" sudo apt-get install -y libssl1.1:armhf
-        spin_it "apt install libjansson4:armhf                                               \033[32m✓\033[0m" sudo apt-get install -y libjansson4:armhf
+        spin_it "apt install libjansson4:armhf                                             \033[32m✓\033[0m" sudo apt-get install -y libjansson4:armhf
     fi
 }
 
