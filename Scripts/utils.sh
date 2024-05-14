@@ -62,7 +62,7 @@ ask_yes_or_no(){
 }
 
 user_pause(){
-    local result=$(gum choose --cursor=  ›   Continue)
+    local result=$(gum choose --cursor=" › " "Continue")
     p_user "Continue"
 }
 
